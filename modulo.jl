@@ -58,3 +58,8 @@ for i = 0:m-1
     println("$(a.val) * $(b.val) = $((a*b).val)")
   end
 end
+
+# A = [
+#   Modul(3, 7), Modul(4, 7) ;
+#   Modul(1, 7), Modul(3, 7)
+# ]
