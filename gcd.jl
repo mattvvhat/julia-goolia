@@ -17,10 +17,10 @@ function totient (n)
       count += 1
     end
   end
-
   return count
 end
 
 # println(gcd(312, 471))
 
-println(gcd(8, 12))
+println(totient(3))
+println(totient(11))

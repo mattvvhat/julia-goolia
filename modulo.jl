@@ -25,9 +25,16 @@ function + (lhs::Modul, rhs::Modul)
   if lhs.mod != rhs.mod
     throw(InvalidModulo("Invalid Modulo"))
   end
-  mod = lhs.mod
-  val = lhs.val + rhs.val
-  return Modul(val, mod)
+  return Modul(lhs.val + rhs.val, lhs.mod)
+end
+
+#
+#
+function - (lhs::Modul, rhs::Modul)
+  if lhs.mod != rhs.mod
+    throw(InvalidModulo("Invalid Modulo"))
+  end
+  return Modul(lhs.val - rhs.val, lhs.mod)
 end
 
 # Multiplication

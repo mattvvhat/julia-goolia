@@ -1,1 +1,1 @@
-Numeric Experiments in Julia
+# Julia samples
