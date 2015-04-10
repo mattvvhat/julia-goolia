@@ -4,8 +4,10 @@
 #
 type Permutation
   order :: Array
-
-  function Permutation (array)
+  function Permutation ()
+    new([])
+  end
+  function Permutation (array::Array)
     
     domain = map(_ -> _, 1:length(array))
     out = array
@@ -16,19 +18,32 @@ type Permutation
     end
 
     new(array)
-
   end
 end
 
-#
-#
-#
-function length (permutation::Permutation)
-  return permutation.order
+function * (lhs::Permutation, rhs::Permutation)
+  if len(lhs) != len(rhs)
+    throw("")
+  end
+  return Permutation(map(x -> at(lhs, x), rhs.order))
 end
 
-p = Permutation([ 1, 2, 3, 5, 4 ])
+function len(perm::Permutation)
+  return length(perm.order)
+end
 
-println(length(p))
+# Evaluate permutation 
+function at (perm::Permutation, i::Integer)
+  return perm.order[i]
+end
+
+#
+#
+#
+p = Permutation([ 1, 2, 3, 5, 4 ])
+q = Permutation([ 5, 4, 3, 2, 1 ])
+
+# println(len(p))
+println(p*p*p)
 # x = 1:5
 # println(map(l -> l, x))
